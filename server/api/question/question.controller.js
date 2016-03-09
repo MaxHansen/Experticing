@@ -59,9 +59,25 @@ function handleError(res, statusCode) {
   };
 }
 
+//Gets all the questions related to a user
+export function findAllQuestions(req,res){
+  Question.find({asker: req.params.id})
+  .populate('asker', 'name email')
+  .then(respondWithResult(res))
+  .catch(handleError(res));
+}
+
+//Gets all the answers related to a user
+export function findAllAnswers(req,res){
+  Question.find({"answers.answerer": req.params.id})
+  .populate('answerer', 'name email')
+  .then(respondWithResult(res))
+  .catch(handleError(res));
+}
+
 // Gets a list of Questions
 export function index(req, res) {
-  Question.findAsync()
+  Question.find({}).populate('answers.user').populate('expertices')
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

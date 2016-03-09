@@ -19,7 +19,7 @@ var UserSchema = new Schema({
 /**
  * Virtuals
  */
-
+/*
 // Public profile information
 UserSchema
   .virtual('profile')
@@ -43,7 +43,7 @@ UserSchema
 /**
  * Validations
  */
-
+/*
 // Validate empty email
 UserSchema
   .path('email')
@@ -85,6 +85,7 @@ var validatePresenceOf = function(value) {
 /**
  * Pre-save hook
  */
+ /*
 UserSchema
   .pre('save', function(next) {
     // Handle new/update passwords
@@ -115,6 +116,7 @@ UserSchema
 /**
  * Methods
  */
+ /*
 UserSchema.methods = {
   /**
    * Authenticate - check if the passwords are the same
@@ -124,6 +126,7 @@ UserSchema.methods = {
    * @return {Boolean}
    * @api public
    */
+   /*
   authenticate(password, callback) {
     if (!callback) {
       return this.password === this.encryptPassword(password);
@@ -150,6 +153,7 @@ UserSchema.methods = {
    * @return {String}
    * @api public
    */
+   /*
   makeSalt(byteSize, callback) {
     var defaultByteSize = 16;
 
@@ -185,6 +189,7 @@ UserSchema.methods = {
    * @return {String}
    * @api public
    */
+   /*
   encryptPassword(password, callback) {
     if (!password || !this.salt) {
       return null;
@@ -208,5 +213,5 @@ UserSchema.methods = {
     });
   }
 };
-
+*/
 export default mongoose.model('User', UserSchema);

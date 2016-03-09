@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 import {Router} from 'express';
 import * as controller from './user.controller';
@@ -13,4 +13,20 @@ router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 
-export default router;
+export default router;*/
+
+'use strict';
+
+var express = require('express');
+var controller = require('./user.controller');
+
+var router = express.Router();
+/*
+router.get('/', controller.index);
+router.get('/:id', controller.show);
+router.post('/', controller.create);
+//router.put('/:id/password', controller.update);
+router.patch('/:id', controller.update);
+router.delete('/:id', controller.destroy);
+*/
+module.exports = router;
